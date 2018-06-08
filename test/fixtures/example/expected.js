@@ -1,3 +1,3 @@
-"use strict";
-
-var foo = undefined;
+class Foo {
+  render() {}
+}

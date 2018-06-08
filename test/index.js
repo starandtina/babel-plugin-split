@@ -15,12 +15,11 @@ describe('', () => {
       const fixtureDir = path.join(fixturesDir, caseName)
       const actualPath = path.join(fixtureDir, 'actual.js')
       const actual = transformFileSync(actualPath, {
-        plugins: ['babel-plugin-syntax-decorators'],
+        plugins: ['babel-plugin-syntax-decorators', 'babel-plugin-syntax-jsx'],
+        // generatorOpts: { concise: false },
       }).code
 
-      const expected = fs
-        .readFileSync(path.join(fixtureDir, 'expected.js'))
-        .toString()
+      const expected = fs.readFileSync(path.join(fixtureDir, 'expected.js')).toString()
 
       assert.equal(trim(actual), trim(expected))
     })
